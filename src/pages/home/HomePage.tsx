@@ -2,6 +2,7 @@ import styled from "styled-components";
 import BottomNav from "../../components/BottomNav";
 import Header from "../../components/Header";
 import Category from "../../components/home/Category";
+import PopularSection from "../../components/home/PopularSection";
 
 function HomePage() {
   return (
@@ -9,6 +10,7 @@ function HomePage() {
       <Header />
       <Content>
         <Category />
+        <PopularSection />
       </Content>
       <BottomNav />
     </>
