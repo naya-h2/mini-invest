@@ -72,6 +72,8 @@ const IconBox = styled.div<{ $isSelected: boolean }>`
   font-size: 13px;
   line-height: 150%; /* 19.5px */
   letter-spacing: -0.416px;
+
+  cursor: pointer;
 `;
 
 const Icon = styled.img`

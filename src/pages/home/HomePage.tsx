@@ -1,9 +1,10 @@
 import BottomNav from "../../components/BottomNav";
+import Header from "../../components/Header";
 
 function HomePage() {
   return (
     <div>
-      HomePage
+      <Header />
       <BottomNav />
     </div>
   );
