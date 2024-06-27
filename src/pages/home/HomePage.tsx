@@ -3,6 +3,7 @@ import BottomNav from "../../components/BottomNav";
 import Header from "../../components/Header";
 import Category from "../../components/home/Category";
 import PopularSection from "../../components/home/PopularSection";
+import DeadlineSection from "../../components/home/DeadlineSection";
 
 function HomePage() {
   return (
@@ -11,6 +12,7 @@ function HomePage() {
       <Content>
         <Category />
         <PopularSection />
+        <DeadlineSection />
       </Content>
       <BottomNav />
     </>
@@ -22,4 +24,8 @@ export default HomePage;
 const Content = styled.div`
   margin: 54px 0 96px;
   padding: 0 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 `;

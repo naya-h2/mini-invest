@@ -12,3 +12,13 @@ export interface GetItemType {
   investNum: number;
   imgUrl: string;
 }
+
+export interface GetDeadlineItemType {
+  id: number;
+  name: string;
+  imgUrl: string;
+  description: string;
+  price: number;
+  yearRate: number;
+  dDay: number;
+}
