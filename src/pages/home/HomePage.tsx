@@ -1,13 +1,23 @@
+import styled from "styled-components";
 import BottomNav from "../../components/BottomNav";
 import Header from "../../components/Header";
+import Category from "../../components/home/Category";
 
 function HomePage() {
   return (
-    <div>
+    <>
       <Header />
+      <Content>
+        <Category />
+      </Content>
       <BottomNav />
-    </div>
+    </>
   );
 }
 
 export default HomePage;
+
+const Content = styled.div`
+  margin: 54px 0 96px;
+  padding: 0 20px;
+`;

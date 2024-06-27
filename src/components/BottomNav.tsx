@@ -35,7 +35,7 @@ function BottomNav() {
   return (
     <Container>
       {ICON_LIST.map((item) => (
-        <IconBox $isSelected={curPath === item.path} onClick={() => navigate(item.path)}>
+        <IconBox key={item.name} $isSelected={curPath === item.path} onClick={() => navigate(item.path)}>
           <Icon src={curPath === item.path ? item.selectedIcon : item.defaultIcon} />
           {item.name}
         </IconBox>
@@ -53,6 +53,7 @@ const Container = styled.div`
 
   position: fixed;
   bottom: 0;
+  z-index: 10;
 
   display: flex;
   justify-content: space-between;
