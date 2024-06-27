@@ -6,7 +6,7 @@ function DeadlineSection() {
     <Container>
       <TitleWrapper>
         모집 마감 임박
-        {/* <MoreBtn>더보기</MoreBtn> */}
+        {/* <MoreBtn>옆으로 밀어서 확인</MoreBtn> */}
       </TitleWrapper>
       <CardWrapper>
         {DEADLINE_DATA.map(({ dDay, name, description, price, yearRate, imgUrl, id }) => (
@@ -90,6 +90,7 @@ const MoreBtn = styled.button`
 
 const CardBox = styled.div`
   padding: 20px;
+  width: 344px;
 
   display: flex;
   flex-direction: column;
@@ -134,6 +135,7 @@ const CardImg = styled.img`
 
 const CardText = styled.div`
   margin-right: 82px;
+  width: 222px;
 
   display: flex;
   flex-direction: column;
@@ -143,6 +145,7 @@ const CardText = styled.div`
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.512px;
+  white-space: normal;
 `;
 
 const DetailText = styled.span`
