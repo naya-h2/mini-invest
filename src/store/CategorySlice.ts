@@ -7,6 +7,6 @@ export interface CategorySlice {
 }
 
 export const createCategorySlice: StateCreator<CategorySlice> = (set) => ({
-  category: "",
+  category: "전체보기",
   setCategory: (item) => set((state) => ({ ...state, category: item })),
 });

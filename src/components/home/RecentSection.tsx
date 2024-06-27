@@ -7,7 +7,7 @@ function RecentSection() {
       최신 등록된 투자 목록
       <CardWrapper>
         {POPULAR_DATA.map(({ id, name, category, startDate, endDate, method }) => (
-          <CardBox>
+          <CardBox key={id}>
             <TitleWrapper>
               {name}
               <CategoryText>{category}</CategoryText>

@@ -40,7 +40,7 @@ function Card({ dDay, name, description, price, rate, imgUrl }: CardProps) {
       <BottomWrapper>
         <BottomBox $isRight={true}>
           1 PIE 당 가격
-          <BoldContent>{`${price} 원`}</BoldContent>
+          <BoldContent>{`${price.toLocaleString("ko-KR")} 원`}</BoldContent>
         </BottomBox>
         <BottomBox $isRight={false}>
           최근 1년 수익률

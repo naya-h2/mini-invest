@@ -11,6 +11,7 @@ export interface GetItemType {
   method: string;
   investNum: number;
   imgUrl: string;
+  price: number;
 }
 
 export interface GetDeadlineItemType {
