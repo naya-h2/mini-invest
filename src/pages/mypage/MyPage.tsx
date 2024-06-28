@@ -4,6 +4,7 @@ import Profile from "../../components/mypage/Profile";
 import InfoBox from "../../components/mypage/InfoBox";
 import { PROFILE } from "../../constants/mockup";
 import Dashboard from "../../components/mypage/Dashboard";
+import StarCategory from "../../components/mypage/StarCategory";
 
 function MyPage() {
   return (
@@ -15,6 +16,7 @@ function MyPage() {
           <InfoBox theme="grey" title="평가수익률" value={(PROFILE.rate > 0 ? "+ " : "") + PROFILE.rate + "%"} />
         </InfoSection>
         <Dashboard data={PROFILE.myInvest} />
+        <StarCategory data={PROFILE.myCategory} />
       </Content>
       <BottomNav />
     </>
