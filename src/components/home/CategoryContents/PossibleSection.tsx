@@ -14,7 +14,7 @@ function PossibleSection({ isPossible = true }: Props) {
   const { category } = useStore((state) => ({ category: state.category }));
   const navigate = useNavigate();
   const { data, isLoading } = useQuery({
-    queryKey: ["item", category, isPossible],
+    queryKey: ["item", category, isPossible, null],
     queryFn: async () => {
       const res = await axios.get(isPossible ? `${PROXY}/api/category?category=${category}` : `${PROXY}/api/end`);
       if (res.data.length > 4) return res.data.slice(0, 4);
