@@ -1,14 +1,16 @@
-import React from "react";
-import { POPULAR_DATA } from "../../constants/mockup";
 import Card from "../Card";
 import styled from "styled-components";
+import { GetItemType } from "../../type/data";
 
-function CardList() {
-  //데이터 불러오기
+interface Props {
+  data: GetItemType[];
+}
+
+function CardList({ data }: Props) {
   return (
     <Container>
-      {POPULAR_DATA.map(({ id, name, category, price, isProfitable, rate, imgUrl }) => (
-        <Card key={id} name={name} category={category} price={price} isProfitable={isProfitable} rate={rate} imgUrl={imgUrl} />
+      {data.map(({ id, name, category, price, isProfitable, rate, imgUrl }) => (
+        <Card key={id} name={name} category={category} price={price} isProfitable={true} rate={rate} imgUrl={imgUrl} />
       ))}
     </Container>
   );

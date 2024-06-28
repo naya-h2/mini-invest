@@ -5,6 +5,7 @@ import Category from "../../components/home/Category";
 import PopularSection from "../../components/home/PopularSection";
 import DeadlineSection from "../../components/home/DeadlineSection";
 import RecentSection from "../../components/home/RecentSection";
+import PossibleSection from "../../components/home/CategoryContents/PossibleSection";
 
 function HomePage() {
   return (
@@ -12,6 +13,7 @@ function HomePage() {
       <Header />
       <Content>
         <Category />
+        {/* <PossibleSection /> */}
         <PopularSection />
         <DeadlineSection />
         <RecentSection />

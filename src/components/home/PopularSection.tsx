@@ -1,17 +1,31 @@
 import styled, { css } from "styled-components";
 import { POPULAR_DATA } from "../../constants/mockup";
 import { CategoryType } from "../../type/homepage";
+import { useQuery } from "react-query";
+import axios from "axios";
+import { GetItemType } from "../../type/data";
 
 function PopularSection() {
   const today = new Date();
   const hours = today.getHours();
+  const { data, isLoading } = useQuery({
+    queryKey: ["popular"],
+    queryFn: async () => {
+      const res = await axios.get("/api/hot");
+      return res.data as GetItemType[];
+    },
+  });
 
   return (
     <Container>
       인기 TOP 3<DetailText>{`${hours}:00`} 기준, 전일 대비</DetailText>
-      {POPULAR_DATA.map(({ id, name, category, isProfitable, rate, imgUrl }) => (
-        <Card key={id} name={name} category={category} rate={rate} imgSrc={imgUrl} isProfitable={isProfitable} />
-      ))}
+      {isLoading ? (
+        <Category>로딩중 ..</Category>
+      ) : data && data?.length > 0 ? (
+        data.map(({ id, name, category, rate, imgUrl }) => <Card key={id} name={name} category={category} rate={rate} imgSrc={imgUrl} isProfitable={rate > 0} />)
+      ) : (
+        "데이터가 존재하지 않습니다."
+      )}
     </Container>
   );
 }

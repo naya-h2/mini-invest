@@ -1,17 +1,29 @@
 import styled, { css } from "styled-components";
 import { DEADLINE_DATA } from "../../constants/mockup";
+import { useQuery } from "react-query";
+import axios from "axios";
+import { GetItemType } from "../../type/data";
 
 function DeadlineSection() {
+  const { data, isLoading } = useQuery({
+    queryKey: ["deadline"],
+    queryFn: async () => {
+      const res = await axios.get("/api/dDay");
+      return res.data as GetItemType[];
+    },
+  });
+
   return (
     <Container>
-      <TitleWrapper>
-        모집 마감 임박
-        {/* <MoreBtn>옆으로 밀어서 확인</MoreBtn> */}
-      </TitleWrapper>
+      <TitleWrapper>모집 마감 임박</TitleWrapper>
       <CardWrapper>
-        {DEADLINE_DATA.map(({ dDay, name, description, price, yearRate, imgUrl, id }) => (
-          <Card key={id} dDay={dDay} name={name} description={description} price={price} rate={yearRate} imgUrl={imgUrl} />
-        ))}
+        {isLoading
+          ? "로딩중.."
+          : data && data.length > 0
+          ? data.map(({ dday, name, description, price, yearRate, imgUrl, id }) => (
+              <Card key={id} dDay={dday} name={name} description={description} price={price} rate={yearRate} imgUrl={imgUrl} />
+            ))
+          : "데이터가 없습니다."}
       </CardWrapper>
     </Container>
   );
@@ -78,14 +90,6 @@ const CardWrapper = styled.div`
 
   white-space: nowrap;
   overflow-x: scroll;
-`;
-
-const MoreBtn = styled.button`
-  color: rgba(46, 47, 51, 0.88);
-
-  font-size: 15px;
-  font-weight: 400;
-  letter-spacing: 0.144px;
 `;
 
 const CardBox = styled.div`

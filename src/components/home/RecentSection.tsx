@@ -1,29 +1,44 @@
 import styled from "styled-components";
 import { POPULAR_DATA } from "../../constants/mockup";
+import { useQuery } from "react-query";
+import axios from "axios";
+import { GetItemType } from "../../type/data";
 
 function RecentSection() {
+  const { data, isLoading } = useQuery({
+    queryKey: ["recent"],
+    queryFn: async () => {
+      const res = await axios.get("/api/new");
+      return res.data as GetItemType[];
+    },
+  });
+
   return (
     <Container>
       최신 등록된 투자 목록
       <CardWrapper>
-        {POPULAR_DATA.map(({ id, name, category, startDate, endDate, method }) => (
-          <CardBox key={id}>
-            <TitleWrapper>
-              {name}
-              <CategoryText>{category}</CategoryText>
-            </TitleWrapper>
-            <DetailBox>
-              <p>투자기간</p>
-              <DetailContent>
-                {startDate} ~ {endDate}
-              </DetailContent>
-            </DetailBox>
-            <DetailBox>
-              <p>투자방법</p>
-              <DetailContent>{method}</DetailContent>
-            </DetailBox>
-          </CardBox>
-        ))}
+        {isLoading
+          ? "로딩중.."
+          : data && data.length > 0
+          ? data.map(({ id, name, category, startDate, endDate, method }) => (
+              <CardBox key={id}>
+                <TitleWrapper>
+                  {name}
+                  <CategoryText>{category}</CategoryText>
+                </TitleWrapper>
+                <DetailBox>
+                  <p>투자기간</p>
+                  <DetailContent>
+                    {startDate} ~ {endDate}
+                  </DetailContent>
+                </DetailBox>
+                <DetailBox>
+                  <p>투자방법</p>
+                  <DetailContent>{method}</DetailContent>
+                </DetailBox>
+              </CardBox>
+            ))
+          : "데이터가 없습니다."}
       </CardWrapper>
     </Container>
   );

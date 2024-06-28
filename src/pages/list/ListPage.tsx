@@ -2,6 +2,7 @@ import styled from "styled-components";
 import BottomNav from "../../components/BottomNav";
 import Header from "../../components/Header";
 import CardList from "../../components/list/CardList";
+import { POPULAR_DATA } from "../../constants/mockup";
 
 function ListPage() {
   //query로 category 사용
@@ -9,7 +10,7 @@ function ListPage() {
     <>
       <Header />
       <Content>
-        <CardList />
+        <CardList data={POPULAR_DATA} />
       </Content>
       <BottomNav />
     </>
