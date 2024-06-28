@@ -1,4 +1,4 @@
-import { GetItemType } from "../type/data";
+import { GetItemType, ProfileType } from "../type/data";
 
 //인기있는 투자 & 인기 top3
 export const POPULAR_DATA: GetItemType[] = [
@@ -52,7 +52,7 @@ export const POPULAR_DATA: GetItemType[] = [
   },
 ];
 
-export const PROFILE = {
+export const PROFILE: ProfileType = {
   name: "유지민",
   imgUrl: "https://i.pinimg.com/736x/1c/1d/8e/1c1d8e0dbf45dbe1644125bb0eea97a5.jpg",
   coin: 400000,

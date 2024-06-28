@@ -1,13 +1,17 @@
 import styled from "styled-components";
-import { PROFILE } from "../../constants/mockup";
 import alertIcon from "../../assets/header-alert.svg";
 
-function Profile() {
+interface Props {
+  imgUrl: string;
+  name: string;
+}
+
+function Profile({ imgUrl, name }: Props) {
   return (
     <Container>
       <ProfileWrapper>
-        <ProfileImg src={PROFILE.imgUrl} />
-        {PROFILE.name}님
+        <ProfileImg src={imgUrl} />
+        {name}님
       </ProfileWrapper>
       <AlertIcon src={alertIcon} />
     </Container>

@@ -17,8 +17,8 @@ export interface GetItemType {
   imgUrl: string;
 }
 
-interface MyInvestType {
-  type: "string";
+export interface MyInvestType {
+  type: string;
   ratio: number;
 }
 export interface ProfileType {
