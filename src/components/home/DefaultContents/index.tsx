@@ -1,7 +1,15 @@
-import React from "react";
+import PopularSection from "./PopularSection";
+import DeadlineSection from "./DeadlineSection";
+import RecentSection from "./RecentSection";
 
 function DefaultContents() {
-  return <div>index</div>;
+  return (
+    <>
+      <PopularSection />
+      <DeadlineSection />
+      <RecentSection />
+    </>
+  );
 }
 
 export default DefaultContents;

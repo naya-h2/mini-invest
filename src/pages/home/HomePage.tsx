@@ -2,21 +2,19 @@ import styled from "styled-components";
 import BottomNav from "../../components/BottomNav";
 import Header from "../../components/Header";
 import Category from "../../components/home/Category";
-import PopularSection from "../../components/home/PopularSection";
-import DeadlineSection from "../../components/home/DeadlineSection";
-import RecentSection from "../../components/home/RecentSection";
-import PossibleSection from "../../components/home/CategoryContents/PossibleSection";
+import CategoryContents from "../../components/home/CategoryContents";
+import DefaultContents from "../../components/home/DefaultContents";
+import { useStore } from "../../store";
 
 function HomePage() {
+  const { category } = useStore((state) => ({ category: state.category }));
+
   return (
     <>
       <Header />
       <Content>
         <Category />
-        {/* <PossibleSection /> */}
-        <PopularSection />
-        <DeadlineSection />
-        <RecentSection />
+        {category !== "전체보기" ? <CategoryContents /> : <DefaultContents />}
       </Content>
       <BottomNav />
     </>

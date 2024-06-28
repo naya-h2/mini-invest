@@ -1,7 +1,12 @@
-import React from "react";
+import PossibleSection from "./PossibleSection";
 
 function CategoryContents() {
-  return <div>CategoryContents</div>;
+  return (
+    <>
+      <PossibleSection />
+      <PossibleSection isPossible={false} />
+    </>
+  );
 }
 
 export default CategoryContents;

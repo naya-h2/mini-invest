@@ -4,13 +4,14 @@ import { GetItemType } from "../../type/data";
 
 interface Props {
   data: GetItemType[];
+  isEnd?: boolean;
 }
 
-function CardList({ data }: Props) {
+function CardList({ data, isEnd = false }: Props) {
   return (
     <Container>
-      {data.map(({ id, name, category, price, isProfitable, rate, imgUrl }) => (
-        <Card key={id} name={name} category={category} price={price} isProfitable={true} rate={rate} imgUrl={imgUrl} />
+      {data.map(({ id, name, category, price, rate, imgUrl }) => (
+        <Card isEnd={isEnd} key={id} name={name} category={category} price={price} isProfitable={rate > 0} rate={rate} imgUrl={imgUrl} />
       ))}
     </Container>
   );

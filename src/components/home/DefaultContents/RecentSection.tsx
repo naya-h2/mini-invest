@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { POPULAR_DATA } from "../../constants/mockup";
+import { POPULAR_DATA } from "../../../constants/mockup";
 import { useQuery } from "react-query";
 import axios from "axios";
-import { GetItemType } from "../../type/data";
-import { PROXY } from "../../constants/api";
+import { GetItemType } from "../../../type/data";
+import { PROXY } from "../../../constants/api";
 
 function RecentSection() {
   const { data, isLoading } = useQuery({
