@@ -1,4 +1,4 @@
-import { GetDeadlineItemType, GetItemType } from "../type/data";
+import { GetItemType } from "../type/data";
 
 //인기있는 투자 & 인기 top3
 export const POPULAR_DATA: GetItemType[] = [
@@ -52,33 +52,24 @@ export const POPULAR_DATA: GetItemType[] = [
   },
 ];
 
-//모집 마감 임박
-export const DEADLINE_DATA: GetDeadlineItemType[] = [
-  {
-    id: 1,
-    name: "바리에가티드 필로덴드론 미니마",
-    imgUrl: "https://i.pinimg.com/564x/fb/2b/2a/fb2b2a83e2ffb95dc3b862fc0823970e.jpg",
-    description: "녹색과 흰색이 섞인 잎이 매력적인 희귀식물",
-    price: 123299000,
-    yearRate: 2.74,
-    dDay: 1,
-  },
-  {
-    id: 2,
-    name: "바리에가티드 필로덴드론 미니마22222222222",
-    imgUrl: "https://i.pinimg.com/564x/fb/2b/2a/fb2b2a83e2ffb95dc3b862fc0823970e.jpg",
-    description: "녹색과 흰색이 섞인 잎이 매력적인 희귀식물",
-    price: 299000,
-    yearRate: 2.74,
-    dDay: 2,
-  },
-  {
-    id: 3,
-    name: "바리에가티드 필로덴드론 미니마33",
-    imgUrl: "https://i.pinimg.com/564x/fb/2b/2a/fb2b2a83e2ffb95dc3b862fc0823970e.jpg",
-    description: "녹색과 흰색이 섞인 잎이 매력적인 희귀식물",
-    price: 299000,
-    yearRate: 2.74,
-    dDay: 4,
-  },
-];
+export const PROFILE = {
+  name: "유지민",
+  imgUrl: "https://i.pinimg.com/736x/1c/1d/8e/1c1d8e0dbf45dbe1644125bb0eea97a5.jpg",
+  coin: 400000,
+  rate: 2.14,
+  myInvest: [
+    {
+      type: "국내 부동산",
+      ratio: 64,
+    },
+    {
+      type: "국내 미술품",
+      ratio: 24,
+    },
+    {
+      type: "독립영화",
+      ratio: 8,
+    },
+  ],
+  myCategory: ["희귀식물", "명품", "독립영화"],
+};

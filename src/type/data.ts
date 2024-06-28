@@ -17,12 +17,15 @@ export interface GetItemType {
   imgUrl: string;
 }
 
-export interface GetDeadlineItemType {
-  id: number;
+interface MyInvestType {
+  type: "string";
+  ratio: number;
+}
+export interface ProfileType {
   name: string;
   imgUrl: string;
-  description: string;
-  price: number;
-  yearRate: number;
-  dDay: number;
+  coin: number;
+  rate: number;
+  myInvest: MyInvestType[];
+  myCategory: CategoryType[];
 }
