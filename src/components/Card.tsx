@@ -13,7 +13,7 @@ interface Props {
 
 function Card({ name, category, price, isProfitable, rate, imgUrl, isEnd = false }: Props) {
   return (
-    <Box>
+    <Box $isEnd={isEnd}>
       <Img src={imgUrl} />
       <TitleWrapper>
         {name}
@@ -25,7 +25,7 @@ function Card({ name, category, price, isProfitable, rate, imgUrl, isEnd = false
       </DetailWrapper>
       <DetailWrapper>
         <DetailType>예상 누적수익률</DetailType>
-        <DetailContent $color={isProfitable ? "#00bf40" : "#FF4242"}>{`${isProfitable ? "+" : "-"} ${rate}%`}</DetailContent>
+        <DetailContent $color={isProfitable ? "#00bf40" : "#FF4242"}>{`${isProfitable ? "+" : ""}${rate}%`}</DetailContent>
       </DetailWrapper>
     </Box>
   );
@@ -33,7 +33,7 @@ function Card({ name, category, price, isProfitable, rate, imgUrl, isEnd = false
 
 export default Card;
 
-const Box = styled.div`
+const Box = styled.div<{ $isEnd: boolean }>`
   padding: 20px 12px 20px 116px;
 
   display: flex;
@@ -44,7 +44,7 @@ const Box = styled.div`
 
   border-radius: 4px;
   border: 1px solid rgba(235, 235, 245);
-  background: #fff;
+  background: ${({ $isEnd }) => ($isEnd ? "#F4F4F5" : "#fff")};
 `;
 
 const Img = styled.img`

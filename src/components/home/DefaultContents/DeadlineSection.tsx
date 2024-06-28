@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components";
-import { DEADLINE_DATA } from "../../constants/mockup";
+import { DEADLINE_DATA } from "../../../constants/mockup";
 import { useQuery } from "react-query";
 import axios from "axios";
-import { GetItemType } from "../../type/data";
-import { PROXY } from "../../constants/api";
+import { GetItemType } from "../../../type/data";
+import { PROXY } from "../../../constants/api";
 
 function DeadlineSection() {
   const { data, isLoading } = useQuery({
