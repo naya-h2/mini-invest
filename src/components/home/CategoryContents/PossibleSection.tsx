@@ -4,13 +4,20 @@ import { useStore } from "../../../store";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "react-query";
 import axios from "axios";
+import { PROXY } from "../../../constants/api";
+import CardList from "../../list/CardList";
 
 function PossibleSection() {
   const { category } = useStore((state) => ({ category: state.category }));
   const navigate = useNavigate();
-  // const {} = useQuery({queryKey: ["item", category], queryFn: async () => {
-  //   const res = axios('http://15.165.155.204:8080/api/')
-  // }})
+  const { data, isLoading } = useQuery({
+    queryKey: ["item", category],
+    queryFn: async () => {
+      const res = await axios.get(`${PROXY}/api/category?category=${category}`);
+      if (res.data.length > 4) return res.data.slice(0, 4);
+      return res.data;
+    },
+  });
 
   return (
     <Container>
@@ -21,6 +28,7 @@ function PossibleSection() {
           <MoreIcon src={moreIcon} />
         </MoreBtn>
       </TitleWrapper>
+      <CardWrapper>{isLoading ? "로딩중.." : data && data.length !== 0 ? <CardList data={data} /> : "데이터가 없습니다."}</CardWrapper>
     </Container>
   );
 }
@@ -60,4 +68,9 @@ const MoreBtn = styled.button`
 const MoreIcon = styled.img`
   width: 20px;
   height: 20px;
+`;
+
+const CardWrapper = styled.div`
+  font-size: 16px;
+  font-weight: 400;
 `;

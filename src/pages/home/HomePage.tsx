@@ -13,10 +13,10 @@ function HomePage() {
       <Header />
       <Content>
         <Category />
-        {/* <PossibleSection /> */}
-        <PopularSection />
+        <PossibleSection />
+        {/* <PopularSection />
         <DeadlineSection />
-        <RecentSection />
+        <RecentSection /> */}
       </Content>
       <BottomNav />
     </>
