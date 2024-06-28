@@ -3,12 +3,13 @@ import { DEADLINE_DATA } from "../../constants/mockup";
 import { useQuery } from "react-query";
 import axios from "axios";
 import { GetItemType } from "../../type/data";
+import { PROXY } from "../../constants/api";
 
 function DeadlineSection() {
   const { data, isLoading } = useQuery({
     queryKey: ["deadline"],
     queryFn: async () => {
-      const res = await axios.get("/api/dDay");
+      const res = await axios.get(`${PROXY}/api/dDay`);
       return res.data as GetItemType[];
     },
   });

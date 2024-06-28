@@ -3,12 +3,13 @@ import { POPULAR_DATA } from "../../constants/mockup";
 import { useQuery } from "react-query";
 import axios from "axios";
 import { GetItemType } from "../../type/data";
+import { PROXY } from "../../constants/api";
 
 function RecentSection() {
   const { data, isLoading } = useQuery({
     queryKey: ["recent"],
     queryFn: async () => {
-      const res = await axios.get("/api/new");
+      const res = await axios.get(`${PROXY}/api/new`);
       return res.data as GetItemType[];
     },
   });

@@ -4,6 +4,7 @@ import { CategoryType } from "../../type/homepage";
 import { useQuery } from "react-query";
 import axios from "axios";
 import { GetItemType } from "../../type/data";
+import { PROXY } from "../../constants/api";
 
 function PopularSection() {
   const today = new Date();
@@ -11,7 +12,7 @@ function PopularSection() {
   const { data, isLoading } = useQuery({
     queryKey: ["popular"],
     queryFn: async () => {
-      const res = await axios.get("/api/hot");
+      const res = await axios.get(`${PROXY}/api/hot`);
       return res.data as GetItemType[];
     },
   });
