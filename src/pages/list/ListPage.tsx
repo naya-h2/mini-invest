@@ -6,6 +6,7 @@ import { useSearchParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import axios from "axios";
 import { PROXY } from "../../constants/api";
+import { Helmet } from "react-helmet-async";
 
 function ListPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -36,6 +37,9 @@ function ListPage() {
 
   return (
     <>
+      <Helmet>
+        <title>{category ? `${category} - 투자 목록` : keyword ? `${keyword} - 검색 결과` : "종료된 투자 목록"}</title>
+      </Helmet>
       <Header />
       <Content>
         <Title>{makeTitleText()}</Title>
