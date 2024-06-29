@@ -5,6 +5,7 @@ import InfoBox from "../../components/mypage/InfoBox";
 import { PROFILE } from "../../constants/mockup";
 import Dashboard from "../../components/mypage/Dashboard";
 import StarCategory from "../../components/mypage/StarCategory";
+import RecentView from "../../components/mypage/RecentView";
 
 function MyPage() {
   return (
@@ -17,6 +18,7 @@ function MyPage() {
         </InfoSection>
         <Dashboard data={PROFILE.myInvest} />
         <StarCategory data={PROFILE.myCategory} />
+        <RecentView />
       </Content>
       <BottomNav />
     </>

@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import { POPULAR_DATA } from "../../../constants/mockup";
 import { CategoryType } from "../../../type/homepage";
 import { useQuery } from "react-query";
 import axios from "axios";

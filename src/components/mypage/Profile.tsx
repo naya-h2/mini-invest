@@ -45,6 +45,8 @@ const ProfileImg = styled.img`
   height: 40px;
 
   border-radius: 100%;
+  object-fit: cover;
+  object-position: center;
 `;
 
 const AlertIcon = styled.img`
