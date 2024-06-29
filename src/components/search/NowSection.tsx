@@ -24,7 +24,7 @@ function NowSection() {
               <CardBox key={id}>
                 <CategoryTag>{category}</CategoryTag>
                 <TitleWrapper>
-                  {name}
+                  <Title>{name}</Title>
                   <NumberMsg>
                     <Number>{investNum}</Number>명이 투자했어요
                   </NumberMsg>
@@ -53,6 +53,12 @@ function NowSection() {
 }
 
 export default NowSection;
+
+const Title = styled.p`
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+`;
 
 const CardList = styled.div`
   display: flex;
@@ -107,6 +113,8 @@ const NumberMsg = styled.p`
   font-weight: 400;
   line-height: 150%;
   letter-spacing: -0.448px;
+
+  white-space: nowrap;
 `;
 
 const Number = styled.span`

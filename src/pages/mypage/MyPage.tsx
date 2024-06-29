@@ -6,10 +6,14 @@ import { PROFILE } from "../../constants/mockup";
 import Dashboard from "../../components/mypage/Dashboard";
 import StarCategory from "../../components/mypage/StarCategory";
 import RecentView from "../../components/mypage/RecentView";
+import { Helmet } from "react-helmet-async";
 
 function MyPage() {
   return (
     <>
+      <Helmet>
+        <title>마이페이지</title>
+      </Helmet>
       <Content>
         <Profile imgUrl={PROFILE.imgUrl} name={PROFILE.name} />
         <InfoSection>
