@@ -18,7 +18,7 @@ const ICON_LIST = [
     name: "카테고리",
     defaultIcon: categoryIcon,
     selectedIcon: categorySelectIcon,
-    path: "/list",
+    path: "/search",
   },
   {
     name: "마이페이지",
