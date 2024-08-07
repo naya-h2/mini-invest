@@ -8,6 +8,7 @@ _\* 데모용 프로젝트로 일부 기능이 동작하지 않을 수 있습니
 
 > 🗓️ 개발 기간: 2024. 06. 26 ~ 2024. 07. 01
 
+
 ## 👥 팀원 소개
 
 <table>
@@ -45,8 +46,8 @@ _\* 데모용 프로젝트로 일부 기능이 동작하지 않을 수 있습니
 <table>
   <tbody>
     <tr>
-      <td align="center"><sub><b>둘러보기</b></sub><br><img src="https://github.com/user-attachments/assets/349f8a98-c716-4666-bc68-2a24ddbd23ca" alt="홈페이지 화면" /></td>
-      <td align="center"><sub><b>카테고리 별 보기</b></sub><br><img src="https://github.com/user-attachments/assets/4e53311e-62cc-4c0c-8289-778e6730fd74" alt="홈페이지 화면-카테고리 별로 보기" /></td>
+      <td align="center"><sub><b>둘러보기</b></sub><br><img width=360px src="https://github.com/user-attachments/assets/7d2ff2fe-9e29-47ac-bdc5-05461032a629" alt="홈페이지 화면" /></td>
+      <td align="center"><sub><b>카테고리 별 보기</b></sub><br><img width=360px src="https://github.com/user-attachments/assets/2c653a6e-a509-4cbd-8e0d-a7e222b5fc8a" alt="홈페이지 화면-카테고리 별로 보기" /></td>
     </tr>
   </tbody>
 </table>
@@ -56,7 +57,7 @@ _\* 데모용 프로젝트로 일부 기능이 동작하지 않을 수 있습니
 <table>
   <tbody>
     <tr>
-      <td align="center"><sub><b>검색으로 항목 찾기</b></sub><br><img src="https://github.com/user-attachments/assets/d80ba7d7-7303-4882-8199-40eb07e942cf" alt="검색 화면" /></td>
+      <td align="center"><sub><b>검색으로 항목 찾기</b></sub><br><img width=360px src="https://github.com/user-attachments/assets/56a3a597-ef6d-4a26-b350-f3474605e046" alt="검색 화면" /></td>
     </tr>
   </tbody>
 </table>
@@ -66,7 +67,7 @@ _\* 데모용 프로젝트로 일부 기능이 동작하지 않을 수 있습니
 <table>
   <tbody>
     <tr>
-      <td align="center"><sub><b>마이페이지</b></sub><br><img src="https://github.com/user-attachments/assets/45f6d301-53f0-47b0-9d8d-650c8dce9593" alt="마이페이지 화면" /></td>
+      <td align="center"><sub><b>마이페이지</b></sub><br><img width=360px src="https://github.com/user-attachments/assets/08f5c5e5-3ec5-4545-acf3-c8690f6e1bf0" alt="마이페이지 화면" /></td>
     </tr>
   </tbody>
 </table>
