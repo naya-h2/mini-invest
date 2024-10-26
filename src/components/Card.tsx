@@ -21,7 +21,7 @@ function Card({ type = "list", name, category, price, isProfitable, rate, imgUrl
         <Category>{category}</Category>
       </TitleWrapper>
       <DetailWrapper $type={type}>
-        <DetailType>1 PIE 당 가격</DetailType>
+        <DetailType>1 PLANT 당 가격</DetailType>
         <DetailContent $color="#000">{price.toLocaleString("ko-KR")} 원</DetailContent>
       </DetailWrapper>
       {type === "list" && (

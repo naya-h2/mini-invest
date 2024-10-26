@@ -13,3 +13,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* 스크롤바의 폭 너비 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background: rgba(236, 236, 236, 0.543); /*스크롤바 뒷 배경 색상*/
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(211, 211, 211); /* 스크롤바 색상 */
+  border-radius: 10px; /* 스크롤바 둥근 테두리 */
+}
+
+/* body::-webkit-scrollbar-track {
+  background: rgba(236, 236, 236, 0.543);
+} */

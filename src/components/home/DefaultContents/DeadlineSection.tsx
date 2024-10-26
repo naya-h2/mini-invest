@@ -51,7 +51,7 @@ function Card({ dDay, name, description, price, rate, imgUrl }: CardProps) {
       <CardImg src={imgUrl} />
       <BottomWrapper>
         <BottomBox $isRight={true}>
-          1 PIE 당 가격
+          1 PLANT 당 가격
           <BoldContent>{`${price.toLocaleString("ko-KR")} 원`}</BoldContent>
         </BottomBox>
         <BottomBox $isRight={false}>

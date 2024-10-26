@@ -18,13 +18,10 @@ const MENU_LIST: Menu[] = [
     icon: allIcon,
   },
   {
-    name: "희귀식물",
+    name: "농산물",
     icon: plantIcon,
   },
-  {
-    name: "부동산",
-    icon: buildingIcon,
-  },
+
   {
     name: "명품",
     icon: accIcon,
@@ -32,6 +29,10 @@ const MENU_LIST: Menu[] = [
   {
     name: "독립영화",
     icon: movieIcon,
+  },
+  {
+    name: "공동구매",
+    icon: buildingIcon,
   },
 ];
 

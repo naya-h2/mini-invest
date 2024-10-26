@@ -7,7 +7,7 @@ export const PROFILE: ProfileType = {
   rate: 2.14,
   myInvest: [
     {
-      type: "국내 부동산",
+      type: "국내 공동구매",
       ratio: 64,
     },
     {
@@ -19,5 +19,5 @@ export const PROFILE: ProfileType = {
       ratio: 8,
     },
   ],
-  myCategory: ["희귀식물", "명품", "독립영화"],
+  myCategory: ["농산물", "명품", "독립영화"],
 };
