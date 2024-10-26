@@ -17,7 +17,7 @@ function MyPage() {
       <Content>
         <Profile imgUrl={PROFILE.imgUrl} name={PROFILE.name} />
         <InfoSection>
-          <InfoBox theme="green" title="코인" value={PROFILE.coin.toLocaleString("KO-kr")} />
+          <InfoBox theme="green" title="PLANT" value={PROFILE.coin.toLocaleString("KO-kr")} />
           <InfoBox theme="grey" title="평가수익률" value={(PROFILE.rate > 0 ? "+ " : "") + PROFILE.rate + "%"} />
         </InfoSection>
         <Dashboard data={PROFILE.myInvest} />

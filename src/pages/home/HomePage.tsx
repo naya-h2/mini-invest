@@ -5,9 +5,19 @@ import Category from "../../components/home/Category";
 import CategoryContents from "../../components/home/CategoryContents";
 import DefaultContents from "../../components/home/DefaultContents";
 import { useStore } from "../../store";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function HomePage() {
-  const { category } = useStore((state) => ({ category: state.category }));
+  const { category, setCategory } = useStore((state) => ({ category: state.category, setCategory: state.setCategory }));
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!["전체보기", "농산물"].includes(category)) {
+      setCategory("전체보기");
+      navigate("/404");
+    }
+  }, [category]);
 
   return (
     <>

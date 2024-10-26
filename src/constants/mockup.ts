@@ -2,7 +2,7 @@ import { GetItemType, ProfileType } from "../type/data";
 
 export const PROFILE: ProfileType = {
   name: "유지민",
-  imgUrl: "https://i.pinimg.com/564x/19/ff/f1/19fff10e9ee3e6eb48e3f5b4a747685b.jpg",
+  imgUrl: "https://cdn.slist.kr/news/photo/202406/559461_884638_4410.jpg",
   coin: 400000,
   rate: 2.14,
   myInvest: [

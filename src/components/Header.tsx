@@ -9,7 +9,10 @@ function Header() {
 
   return (
     <Container>
-      <Logo src={logoIcon} onClick={() => navigate("/")} />
+      <Logo onClick={() => navigate("/")}>
+        <img src={logoIcon} alt="플랜테스트 로고" />
+        플랜테스트
+      </Logo>
       <SearchIcon src={searchIcon} onClick={() => navigate("/search")} />
       <AlertIcon src={alertIcon} />
     </Container>
@@ -30,8 +33,14 @@ const Container = styled.div`
   background-color: white;
 `;
 
-const Logo = styled.img`
+const Logo = styled.span`
   height: 28px;
+  font-weight: 700;
+  font-size: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
 
   cursor: pointer;
 `;
