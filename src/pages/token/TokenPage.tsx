@@ -2,23 +2,10 @@ import styled from "styled-components";
 import plusIcon from "../../assets/arrow_drop_up.svg";
 import minusIcon from "../../assets/arrow_drop_down.svg";
 import { Helmet } from "react-helmet-async";
-
-const data = {
-  id: 19,
-  name: "배추(15000평)",
-  description: "농장 위치: 충북 괴산",
-  category: "농산물",
-  rate: 7.84,
-  yearRate: 7.86,
-  investNum: 72,
-  startDate: "2024-09-01",
-  endDate: "2024-12-01",
-  method: "펀딩",
-  price: 72000,
-  imgUrl:
-    "https://hilarious-snapdragon-2ae.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fde448d9f-35f7-4ad6-850b-8de1c0d77406%2F7ff2aff2-85c9-4666-a013-3f8b9140b481%2Fimage.png?table=block&id=12b8863b-8c59-808f-832e-ec9024f21f6e&spaceId=de448d9f-35f7-4ad6-850b-8de1c0d77406&width=2000&userId=&cache=v2",
-  dday: 34,
-};
+import { useParams } from "react-router-dom";
+import { useQuery } from "react-query";
+import axios from "axios";
+import { PROXY } from "../../constants/api";
 
 const PRICE_RIGHT = [
   { type: "시가", value: 5060, color: "#F14226" },
@@ -39,87 +26,105 @@ const PRICE_LEFT = [
  * 토큰 거래 페이지
  */
 function TokenPage() {
+  const params = useParams();
+  const investId = params.id;
+
+  const { data, isLoading } = useQuery({
+    queryKey: ["item", investId],
+    queryFn: async () => {
+      const res = await axios.get(`${PROXY}/api?id=${investId}`);
+
+      return res.data;
+    },
+  });
+
   return (
     <>
-      <Helmet>
-        <title>{data.name} | 토큰 거래</title>
-      </Helmet>
+      {isLoading ? (
+        <div>로딩 중입니다..</div>
+      ) : (
+        <>
+          <Helmet>
+            <title>{data.name} | 토큰 거래</title>
+          </Helmet>
 
-      <Header>
-        <LeftBox>
-          <Title>{data.name}</Title>
-          <PriceContainer>
-            <PriceBox>
-              <Price $isPlus={data.rate > 0}>{data.price.toLocaleString("ko-kr")}</Price>
-              <PriceChange $change={data.rate}>
-                <Icon alt="아이콘" src={data.rate > 0 ? plusIcon : minusIcon} /> 80 ({data.rate > 0 ? "+" : ""}
-                {data.rate}%)
-              </PriceChange>
-            </PriceBox>
-            <NextPrice>다음 장 기준가</NextPrice>
-          </PriceContainer>
-        </LeftBox>
-        <Img src={data.imgUrl} alt="상품 이미지" />
-      </Header>
+          <Header>
+            <LeftBox>
+              <Title>{data.name}</Title>
+              <PriceContainer>
+                <PriceBox>
+                  <Price $isPlus={data.rate > 0}>{data.price.toLocaleString("ko-kr")}</Price>
+                  <PriceChange $change={data.rate}>
+                    <Icon alt="아이콘" src={data.rate > 0 ? plusIcon : minusIcon} /> 80 ({data.rate > 0 ? "+" : ""}
+                    {data.rate}%)
+                  </PriceChange>
+                </PriceBox>
+                <NextPrice>다음 장 기준가</NextPrice>
+              </PriceContainer>
+            </LeftBox>
+            <Img src={data.imgUrl} alt="상품 이미지" />
+          </Header>
 
-      <Tabs>
-        <Tab $active>호가</Tab>
-        <Tab>정보</Tab>
-        <Tab>시세</Tab>
-      </Tabs>
+          <Tabs>
+            <Tab $active>호가</Tab>
+            <Tab>정보</Tab>
+            <Tab>시세</Tab>
+          </Tabs>
 
-      <OrderBook>
-        <div></div>
-        <div>
-          {[...Array(5)].map((_, idx) => (
-            <OrderRow key={idx} $type="bid">
-              <Column $color="#3281F5">
-                <PriceText>240,000</PriceText>
-              </Column>
-            </OrderRow>
-          ))}
-        </div>
-        <RightBox>
-          {PRICE_RIGHT.map(({ type, value, color }) => (
-            <ColBox key={type}>
-              <Column>{type}</Column>
-              <Column $color={color}>{value.toLocaleString("ko-kr")}</Column>
-            </ColBox>
-          ))}
-        </RightBox>
-      </OrderBook>
+          <OrderBook>
+            <div></div>
+            <div>
+              {[...Array(5)].map((_, idx) => (
+                <OrderRow key={idx} $type="bid">
+                  <Column $color="#3281F5">
+                    <PriceText>240,000</PriceText>
+                  </Column>
+                </OrderRow>
+              ))}
+            </div>
+            <RightBox>
+              {PRICE_RIGHT.map(({ type, value, color }) => (
+                <ColBox key={type}>
+                  <Column>{type}</Column>
+                  <Column $color={color}>{value.toLocaleString("ko-kr")}</Column>
+                </ColBox>
+              ))}
+            </RightBox>
+          </OrderBook>
 
-      <OrderBook>
-        <LeftPriceBox>
-          {PRICE_LEFT.map(({ type, value, color }, idx) => (
-            <ColBox key={idx}>
-              <Column>{type}</Column>
-              <Column $color={color}>{value.toLocaleString("ko-kr")}</Column>
-            </ColBox>
-          ))}
-        </LeftPriceBox>
-        <div>
-          {[...Array(5)].map((_, idx) => (
-            <OrderRow key={idx} $type="ask">
-              <Column $color="#F14226">
-                <PriceText>240,000</PriceText>
-              </Column>
-            </OrderRow>
-          ))}
-        </div>
-        <div></div>
-      </OrderBook>
+          <OrderBook>
+            <LeftPriceBox>
+              {PRICE_LEFT.map(({ type, value, color }, idx) => (
+                <ColBox key={idx}>
+                  <Column>{type}</Column>
+                  <Column $color={color}>{value.toLocaleString("ko-kr")}</Column>
+                </ColBox>
+              ))}
+            </LeftPriceBox>
+            <div>
+              {[...Array(5)].map((_, idx) => (
+                <OrderRow key={idx} $type="ask">
+                  <Column $color="#F14226">
+                    <PriceText>240,000</PriceText>
+                  </Column>
+                </OrderRow>
+              ))}
+            </div>
+            <div></div>
+          </OrderBook>
 
-      <BottomBox>
-        <ButtonGroup>
-          <Button onClick={() => (window.location.href = "/404")} $type="buy">
-            매수
-          </Button>
-          <Button onClick={() => (window.location.href = "/404")} $type="sell">
-            매도
-          </Button>
-        </ButtonGroup>
-      </BottomBox>
+          <BottomBox>
+            <ButtonGroup>
+              <Button onClick={() => (window.location.href = "/404")} $type="buy">
+                매수
+              </Button>
+              <Button onClick={() => (window.location.href = "/404")} $type="sell">
+                매도
+              </Button>
+            </ButtonGroup>
+          </BottomBox>
+        </>
+      )}
     </>
   );
 }
