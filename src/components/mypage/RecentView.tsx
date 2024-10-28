@@ -21,7 +21,7 @@ function RecentView() {
         {isLoading
           ? "로딩중.."
           : data && data?.length > 0
-          ? data.map(({ id, name, category, price, imgUrl }) => <Card key={id} type="recentView" name={name} category={category} price={price} imgUrl={imgUrl} />)
+          ? data.map(({ id, name, category, price, imgUrl }) => <Card id={id} key={id} type="recentView" name={name} category={category} price={price} imgUrl={imgUrl} />)
           : "데이터가 없습니다."}
       </CardWrapper>
     </Container>

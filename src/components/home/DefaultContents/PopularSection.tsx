@@ -22,7 +22,7 @@ function PopularSection() {
       {isLoading ? (
         <Category>로딩중 ..</Category>
       ) : data && data?.length > 0 ? (
-        data.map(({ id, name, category, rate, imgUrl }) => <Card key={id} name={name} category={category} rate={rate} imgSrc={imgUrl} isProfitable={rate > 0} />)
+        data.map(({ id, name, category, rate, imgUrl }) => <Card id={id} key={id} name={name} category={category} rate={rate} imgSrc={imgUrl} isProfitable={rate > 0} />)
       ) : (
         "데이터가 존재하지 않습니다."
       )}
@@ -33,6 +33,7 @@ function PopularSection() {
 export default PopularSection;
 
 interface CardProps {
+  id: number;
   name: string;
   category: CategoryType;
   rate: number;
@@ -40,9 +41,9 @@ interface CardProps {
   isProfitable: boolean;
 }
 
-function Card({ name, category, rate, imgSrc, isProfitable }: CardProps) {
+function Card({ id, name, category, rate, imgSrc, isProfitable }: CardProps) {
   return (
-    <CardBox>
+    <CardBox onClick={() => (window.location.href = `/invest/${id}`)}>
       <CardImg src={imgSrc} />
       <CardText>
         {name}
@@ -84,6 +85,8 @@ const CardBox = styled.div`
   position: relative;
 
   border-bottom: 1px solid rgba(127, 127, 127, 0.2);
+
+  cursor: pointer;
 `;
 
 const CardImg = styled.img`

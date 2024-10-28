@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import { CategoryType } from "../type/homepage";
 
 interface Props {
+  id: number;
   type?: "list" | "recentView";
   name: string;
   category: CategoryType;
@@ -12,9 +13,9 @@ interface Props {
   isEnd?: boolean;
 }
 
-function Card({ type = "list", name, category, price, isProfitable, rate, imgUrl, isEnd = false }: Props) {
+function Card({ id, type = "list", name, category, price, isProfitable, rate, imgUrl, isEnd = false }: Props) {
   return (
-    <Box $isEnd={isEnd} $type={type}>
+    <Box $isEnd={isEnd} $type={type} onClick={() => (window.location.href = `/invest/${id}`)}>
       <Img src={imgUrl} />
       <TitleWrapper>
         <Title>{name}</Title>
@@ -56,6 +57,8 @@ const Box = styled.div<{ $isEnd: boolean; $type?: string }>`
   background: ${({ $isEnd }) => ($isEnd ? "#F4F4F5" : "#fff")};
 
   ${({ $type }) => ($type === "recentView" ? recentViewCard : null)};
+
+  cursor: pointer;
 `;
 
 const Img = styled.img`

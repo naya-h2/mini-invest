@@ -50,6 +50,7 @@ const SearchIcon = styled.img`
   height: 28px;
 
   position: absolute;
+  top: 13px;
   right: 68px;
 
   cursor: pointer;
@@ -60,5 +61,6 @@ const AlertIcon = styled.img`
   height: 28px;
 
   position: absolute;
+  top: 13px;
   right: 20px;
 `;
