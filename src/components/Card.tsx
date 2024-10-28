@@ -15,7 +15,7 @@ interface Props {
 
 function Card({ id, type = "list", name, category, price, isProfitable, rate, imgUrl, isEnd = false }: Props) {
   return (
-    <Box $isEnd={isEnd} $type={type} onClick={() => (window.location.href = `/invest/${id}`)}>
+    <Box $isEnd={isEnd} $type={type} onClick={() => (window.location.href = isEnd ? `/token/${id}` : `/invest/${id}`)}>
       <Img src={imgUrl} />
       <TitleWrapper>
         <Title>{name}</Title>
