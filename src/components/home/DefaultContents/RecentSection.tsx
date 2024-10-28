@@ -20,8 +20,8 @@ function RecentSection() {
         {isLoading
           ? "로딩중.."
           : data && data.length > 0
-          ? data.map(({ id, name, category, startDate, endDate, method }) => (
-              <CardBox key={id}>
+          ? data.map(({ id, name, category, startDate, endDate, method, dday }) => (
+              <CardBox key={id} onClick={() => (window.location.href = dday < 0 ? `/token/${id}` : `/invest/${id}`)}>
                 <TitleWrapper>
                   {name}
                   <CategoryText>{category}</CategoryText>
@@ -72,6 +72,8 @@ const CardBox = styled.div`
 
   border-radius: 4px;
   border: 1px solid rgba(235, 235, 245);
+
+  cursor: pointer;
 `;
 
 const TitleWrapper = styled.div`

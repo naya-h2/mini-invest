@@ -21,7 +21,7 @@ function DeadlineSection() {
           ? "로딩중.."
           : data && data.length > 0
           ? data.map(({ dday, name, description, price, yearRate, imgUrl, id }) => (
-              <Card key={id} dDay={dday} name={name} description={description} price={price} rate={yearRate} imgUrl={imgUrl} />
+              <Card id={id} key={id} dDay={dday} name={name} description={description} price={price} rate={yearRate} imgUrl={imgUrl} />
             ))
           : "데이터가 없습니다."}
       </CardWrapper>
@@ -32,6 +32,7 @@ function DeadlineSection() {
 export default DeadlineSection;
 
 interface CardProps {
+  id: number;
   dDay: number;
   name: string;
   description: string;
@@ -40,9 +41,9 @@ interface CardProps {
   imgUrl: string;
 }
 
-function Card({ dDay, name, description, price, rate, imgUrl }: CardProps) {
+function Card({ id, dDay, name, description, price, rate, imgUrl }: CardProps) {
   return (
-    <CardBox>
+    <CardBox onClick={() => (window.location.href = dDay < 0 ? `/token/${id}` : `/invest/${id}`)}>
       <CardChip>{`D-${dDay}`}</CardChip>
       <CardText>
         {name}
@@ -104,6 +105,8 @@ const CardBox = styled.div`
 
   border: 1px solid rgba(127, 127, 127, 0.2);
   border-radius: 4px;
+
+  cursor: pointer;
 `;
 
 const CardChip = styled.span`
