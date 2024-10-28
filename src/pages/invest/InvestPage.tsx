@@ -58,11 +58,11 @@ function InvestPage() {
                   <Follower>364 팔로워</Follower>
                 </div>
               </LeftBox>
-              <FollowBtn>팔로우</FollowBtn>
+              <FollowBtn onClick={() => (window.location.href = "/404")}>팔로우</FollowBtn>
             </Seller>
           </Container>
           <BottomBox>
-            <BottomBtn>펀딩하기</BottomBtn>
+            <BottomBtn onClick={() => (window.location.href = "/404")}>펀딩하기</BottomBtn>
           </BottomBox>
         </>
       )}
@@ -219,4 +219,6 @@ const BottomBtn = styled.button`
   font-weight: 500;
   line-height: 150%; /* 27px */
   letter-spacing: -0.576px;
+
+  cursor: pointer;
 `;
