@@ -38,7 +38,7 @@ const THEME = {
 };
 
 const Box = styled.div<{ $theme: "green" | "grey" }>`
-  height: 88px;
+  min-height: 88px;
   padding: 16px 24px;
 
   border-radius: 4px;
@@ -49,6 +49,7 @@ const Box = styled.div<{ $theme: "green" | "grey" }>`
   letter-spacing: -0.22px;
 
   ${({ $theme }) => THEME[$theme]};
+  white-space: pre-wrap;
 `;
 
 const Icon = styled.img`
