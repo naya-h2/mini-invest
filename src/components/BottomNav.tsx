@@ -21,6 +21,12 @@ const ICON_LIST = [
     path: "/search",
   },
   {
+    name: "플랜트 거래",
+    defaultIcon: categoryIcon,
+    selectedIcon: categorySelectIcon,
+    path: "/plant",
+  },
+  {
     name: "마이페이지",
     defaultIcon: mypageIcon,
     selectedIcon: mypageSelectIcon,

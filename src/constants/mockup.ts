@@ -19,5 +19,5 @@ export const PROFILE: ProfileType = {
       ratio: 8,
     },
   ],
-  myCategory: ["농산물", "명품", "독립영화"],
+  myCategory: ["식물", "명품", "독립영화"],
 };

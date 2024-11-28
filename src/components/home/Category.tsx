@@ -18,7 +18,7 @@ const MENU_LIST: Menu[] = [
     icon: allIcon,
   },
   {
-    name: "농산물",
+    name: "식물",
     icon: plantIcon,
   },
 
