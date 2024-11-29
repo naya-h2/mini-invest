@@ -44,7 +44,7 @@ function OrderPage() {
             </OrderBox>
 
             <PriceBox>
-              {data.price.toLocaleString("ko-kr")}
+              {(data.price * count).toLocaleString("ko-kr")}
               <MiniLetter>원</MiniLetter>
             </PriceBox>
           </Container>
