@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet-async";
 import categoryIcon from "../../assets/circle_right.svg";
 import sellerIcon from "../../assets/seller.svg";
 import { useState } from "react";
+import plantIcon from "../../assets/plant-icon.svg";
 
 function InvestPage() {
   const params = useParams();
@@ -43,25 +44,35 @@ function InvestPage() {
 
             <Price $color={"#00BF40"}>
               {data.price.toLocaleString("ko-kr")}
-              <MiniLetter>원 / 1 Plant</MiniLetter>
+              <MiniLetter>원 / 1 플랜트</MiniLetter>
             </Price>
             <Price $isDown>
               {data.investNum}
               <MiniLetter>명 참여</MiniLetter>
             </Price>
 
-            <EtcInfo>
-              <MiniLetter>인당 평균 구매 Plant</MiniLetter>
-              <p>3.2 P</p>
-            </EtcInfo>
+            <EtcBox>
+              <EtcInfo>
+                <MiniLetter>
+                  인당 평균 구매
+                  <br />
+                  P(플랜트)
+                </MiniLetter>
+                <BoxInfo>
+                  3.2 <img src={plantIcon} alt="플랜트 아이콘" />
+                </BoxInfo>
+              </EtcInfo>
+              <EtcInfo>
+                <MiniLetter>펀딩률</MiniLetter>
+                <Progressbar>
+                  <Progress $ratio={Math.min((data.investNum / 200) * 100, 100)} />
+                </Progressbar>
+                <BoxInfo>
+                  {(data.investNum / 200) * 100} <span style={{ fontSize: "15px" }}>%</span>
+                </BoxInfo>
+              </EtcInfo>
+            </EtcBox>
 
-            <EtcInfo>
-              <MiniLetter>펀딩률</MiniLetter>
-              <p>{(data.investNum / 200) * 100} %</p>
-              <Progressbar>
-                <Progress $ratio={Math.min((data.investNum / 200) * 100, 100)} />
-              </Progressbar>
-            </EtcInfo>
             <SellerBox>
               판매자 정보
               <Seller>
@@ -89,7 +100,7 @@ function InvestPage() {
 export default InvestPage;
 
 const SellerBox = styled.div`
-  margin-top: 32px;
+  margin-top: 34px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -102,20 +113,44 @@ const SellerBox = styled.div`
   letter-spacing: -0.48px;
 `;
 
+const EtcBox = styled.div`
+  display: grid;
+  grid-template-columns: 37% 60%;
+  gap: 3%;
+`;
+
 const EtcInfo = styled.div`
   display: flex;
-  gap: 12px;
-  margin-bottom: 4px;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 16px 20px 12px;
+
+  border-radius: 12px;
+  background: #f2fff6;
 
   color: #404040;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 400;
+  line-height: 150%; /* 22.5px */
+  letter-spacing: -0.48px;
+`;
+
+const BoxInfo = styled.div`
+  display: flex;
+  gap: 4px;
+  align-items: center;
+
+  color: #00bf40;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 150%; /* 36px */
+  letter-spacing: -0.768px;
 `;
 
 const Progressbar = styled.div`
-  width: 65%;
-  height: 12px;
+  width: 100%;
+  height: 16px;
 
   background-color: #d9d9d9;
   border-radius: 12px;
@@ -123,7 +158,7 @@ const Progressbar = styled.div`
 
 const Progress = styled.div<{ $ratio: number }>`
   width: ${({ $ratio }) => `${$ratio}%`};
-  height: 12px;
+  height: 16px;
   background-color: #00bf40;
   border-radius: 12px;
 `;
