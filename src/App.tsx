@@ -6,6 +6,7 @@ import SearchPage from "./pages/search/SearchPage";
 import NotFoundPage from "./pages/404/NotFoundPage";
 import InvestPage from "./pages/invest/InvestPage";
 import TokenPage from "./pages/token/TokenPage";
+import OrderPage from "./pages/order/OrderPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/mypage" element={<MyPage />} />
       <Route path="/search" element={<SearchPage />} />
       <Route path="/invest/:id" element={<InvestPage />} />
+      <Route path="/order/:id" element={<OrderPage />} />
       <Route path="/token/:id" element={<TokenPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>

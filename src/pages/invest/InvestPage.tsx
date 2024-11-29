@@ -89,7 +89,7 @@ function InvestPage() {
             </SellerBox>
           </Container>
           <BottomBox>
-            <BottomBtn onClick={() => (window.location.href = "/404")}>펀딩하기</BottomBtn>
+            <BottomBtn onClick={() => (window.location.href = `/order/${investId}`)}>펀딩하기</BottomBtn>
           </BottomBox>
         </>
       )}
