@@ -5,6 +5,8 @@ import categoryIcon from "../assets/nav-category.svg";
 import categorySelectIcon from "../assets/nav-category-select.svg";
 import mypageIcon from "../assets/nav-account.svg";
 import mypageSelectIcon from "../assets/nav-account-select.svg";
+import plantIcon from "../assets/nav-plant.svg";
+import plantSelectIcon from "../assets/nav-plant-select.svg";
 import { useNavigate } from "react-router-dom";
 
 const ICON_LIST = [
@@ -22,8 +24,8 @@ const ICON_LIST = [
   },
   {
     name: "플랜트 거래",
-    defaultIcon: categoryIcon,
-    selectedIcon: categorySelectIcon,
+    defaultIcon: plantIcon,
+    selectedIcon: plantSelectIcon,
     path: "/plant",
   },
   {

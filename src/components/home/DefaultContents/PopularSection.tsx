@@ -18,7 +18,7 @@ function PopularSection() {
 
   return (
     <Container>
-      인기 TOP 3<DetailText>{`${hours}:00`} 기준, 전일 대비</DetailText>
+      펀딩 완료된 식물<DetailText>{`${hours}:00`} 기준, 전일 대비</DetailText>
       {isLoading ? (
         <Category>로딩중 ..</Category>
       ) : data && data?.length > 0 ? (

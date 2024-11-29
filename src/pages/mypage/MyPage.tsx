@@ -17,7 +17,7 @@ function MyPage() {
       <Content>
         <Profile imgUrl={PROFILE.imgUrl} name={PROFILE.name} />
         <InfoSection>
-          <InfoBox theme="green" title="나의 PLANT" value={"당근: 300 Plant\n납작복숭아: 5000 Plant"} />
+          <InfoBox theme="green" title="나의 PLANT" />
           <InfoBox theme="grey" title="전체수익률" value={(PROFILE.rate > 0 ? "+ " : "") + PROFILE.rate + "%"} />
         </InfoSection>
         <Dashboard data={PROFILE.myInvest} />

@@ -15,7 +15,7 @@ function DeadlineSection() {
 
   return (
     <Container>
-      <TitleWrapper>모집 마감 임박</TitleWrapper>
+      <TitleWrapper>펀딩 중인 식물</TitleWrapper>
       <CardWrapper>
         {isLoading
           ? "로딩중.."
