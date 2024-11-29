@@ -1,6 +1,6 @@
 import allIcon from "../../assets/category-all.svg";
 import plantIcon from "../../assets/category-plant.svg";
-import buildingIcon from "../../assets/category-residence.svg";
+import fruitIcon from "../../assets/category-fruit.svg";
 import accIcon from "../../assets/category-necklace.svg";
 import movieIcon from "../../assets/category-movie.svg";
 import styled, { css } from "styled-components";
@@ -32,7 +32,7 @@ const MENU_LIST: Menu[] = [
   },
   {
     name: "공동구매",
-    icon: buildingIcon,
+    icon: fruitIcon,
   },
 ];
 

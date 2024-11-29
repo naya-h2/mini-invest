@@ -6,10 +6,12 @@ import styled from "styled-components";
 import { Helmet } from "react-helmet-async";
 import categoryIcon from "../../assets/circle_right.svg";
 import sellerIcon from "../../assets/seller.svg";
+import { useState } from "react";
 
 function InvestPage() {
   const params = useParams();
   const investId = params.id;
+  const [isFollow, setIsFollow] = useState(false);
 
   const { data, isLoading } = useQuery({
     queryKey: ["item", investId],
@@ -41,25 +43,39 @@ function InvestPage() {
 
             <Price $color={"#00BF40"}>
               {data.price.toLocaleString("ko-kr")}
-              <MiniLetter>원</MiniLetter>
+              <MiniLetter>원 / 1 Plant</MiniLetter>
             </Price>
             <Price $isDown>
               {data.investNum}
               <MiniLetter>명 참여</MiniLetter>
             </Price>
 
-            <MiniLetter>판매자 정보</MiniLetter>
-            <Seller>
-              <LeftBox>
-                <img src={sellerIcon} alt="판매자 아이콘" />
-                <div>
-                  주식회사 레어
-                  <br />
-                  <Follower>364 팔로워</Follower>
-                </div>
-              </LeftBox>
-              <FollowBtn onClick={() => (window.location.href = "/404")}>팔로우</FollowBtn>
-            </Seller>
+            <EtcInfo>
+              <MiniLetter>인당 평균 구매 Plant</MiniLetter>
+              <p>3.2 P</p>
+            </EtcInfo>
+
+            <EtcInfo>
+              <MiniLetter>펀딩률</MiniLetter>
+              <p>{(data.investNum / 200) * 100} %</p>
+              <Progressbar>
+                <Progress $ratio={Math.min((data.investNum / 200) * 100, 100)} />
+              </Progressbar>
+            </EtcInfo>
+            <SellerBox>
+              판매자 정보
+              <Seller>
+                <LeftBox>
+                  <img src={sellerIcon} alt="판매자 아이콘" />
+                  <div>
+                    주식회사 레어
+                    <br />
+                    <Follower>364 팔로워</Follower>
+                  </div>
+                </LeftBox>
+                <FollowBtn onClick={() => setIsFollow(!isFollow)}>{isFollow ? "팔로잉" : "팔로우"}</FollowBtn>
+              </Seller>
+            </SellerBox>
           </Container>
           <BottomBox>
             <BottomBtn onClick={() => (window.location.href = "/404")}>펀딩하기</BottomBtn>
@@ -71,6 +87,46 @@ function InvestPage() {
 }
 
 export default InvestPage;
+
+const SellerBox = styled.div`
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin-left: 4px;
+  color: #404040;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 150%; /* 22.5px */
+  letter-spacing: -0.48px;
+`;
+
+const EtcInfo = styled.div`
+  display: flex;
+  gap: 12px;
+  margin-bottom: 4px;
+  align-items: center;
+
+  color: #404040;
+  font-size: 15px;
+  font-weight: 500;
+`;
+
+const Progressbar = styled.div`
+  width: 65%;
+  height: 12px;
+
+  background-color: #d9d9d9;
+  border-radius: 12px;
+`;
+
+const Progress = styled.div<{ $ratio: number }>`
+  width: ${({ $ratio }) => `${$ratio}%`};
+  height: 12px;
+  background-color: #00bf40;
+  border-radius: 12px;
+`;
 
 const ProductImg = styled.img`
   width: 100%;
@@ -129,7 +185,7 @@ const Price = styled.div<{ $color?: string; $isDown?: boolean }>`
   line-height: 150%; /* 42px */
   letter-spacing: -0.896px;
 
-  margin-bottom: ${({ $isDown }) => ($isDown ? "32px" : "0")};
+  margin-bottom: ${({ $isDown }) => ($isDown ? "20px" : "0")};
 `;
 
 const MiniLetter = styled.span`
