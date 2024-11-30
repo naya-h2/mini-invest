@@ -43,7 +43,7 @@ interface CardProps {
 
 function Card({ id, name, category, rate, imgSrc, isProfitable }: CardProps) {
   return (
-    <CardBox onClick={() => (window.location.href = `/invest/${id}`)}>
+    <CardBox onClick={() => (window.location.href = `/token/${id}`)}>
       <CardImg src={imgSrc} />
       <CardText>
         {name}

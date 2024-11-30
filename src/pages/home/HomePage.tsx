@@ -13,7 +13,7 @@ function HomePage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!["전체보기", "식물"].includes(category)) {
+    if (!["전체보기", "식물", "농산물"].includes(category)) {
       setCategory("전체보기");
       navigate("/404");
     }

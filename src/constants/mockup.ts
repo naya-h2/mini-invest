@@ -7,7 +7,7 @@ export const PROFILE: ProfileType = {
   rate: 2.14,
   myInvest: [
     {
-      type: "국내 공동구매",
+      type: "국내 농산물",
       ratio: 64,
     },
     {

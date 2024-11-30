@@ -2,7 +2,7 @@
 
 <img src="https://github.com/user-attachments/assets/5afc4c83-28af-4e05-8a5f-b9295df41f90" width=300 />
 
-[플랜테스트](https://moaup.netlify.app/)에서 농산물 • 공동구매 • 명품 • 독립영화 등 다양한 자산에 쉽게 투자해 보세요!
+[플랜테스트](https://moaup.netlify.app/)에서 농산물 • 농산물 • 명품 • 독립영화 등 다양한 자산에 쉽게 투자해 보세요!
 
 _\* 데모용 프로젝트로 일부 기능이 동작하지 않을 수 있습니다._
 

@@ -31,7 +31,7 @@ const MENU_LIST: Menu[] = [
     icon: movieIcon,
   },
   {
-    name: "공동구매",
+    name: "농산물",
     icon: fruitIcon,
   },
 ];
